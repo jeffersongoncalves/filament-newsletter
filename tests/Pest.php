@@ -1,5 +1,6 @@
 <?php
 
 declare(strict_types=1);
+use JeffersonGoncalves\FilamentNewsletter\Tests\TestCase;
 
-uses(JeffersonGoncalves\FilamentNewsletter\Tests\TestCase::class)->in('Unit', 'Feature');
+uses(TestCase::class)->in('Unit', 'Feature');

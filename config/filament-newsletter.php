@@ -1,5 +1,8 @@
 <?php
 
+use JeffersonGoncalves\FilamentNewsletter\Resources\EmailGroupResource;
+use JeffersonGoncalves\FilamentNewsletter\Resources\NewsletterResource;
+
 return [
 
     /*
@@ -12,8 +15,8 @@ return [
     |
     */
     'resources' => [
-        'newsletter' => \JeffersonGoncalves\FilamentNewsletter\Resources\NewsletterResource::class,
-        'email_group' => \JeffersonGoncalves\FilamentNewsletter\Resources\EmailGroupResource::class,
+        'newsletter' => NewsletterResource::class,
+        'email_group' => EmailGroupResource::class,
     ],
 
     /*

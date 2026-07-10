@@ -46,6 +46,7 @@ it('can create a newsletter', function () {
 it('can render the edit newsletter page', function () {
     $newsletter = Newsletter::create([
         'subject' => 'Weekly update',
+        'sender_email' => 'news@acme.test',
         'content_type' => 'markdown',
         'content' => '# Hello',
         'route' => 'weekly-update',

@@ -19,9 +19,9 @@ class CheckBrokenLinksTableAction
             ->icon(Heroicon::OutlinedLinkSlash)
             ->color('gray')
             ->action(function (Newsletter $record): void {
-                $brokenLinks = app(FindBrokenNewsletterLinksAction::class)($record);
+                $brokenLinks = app(FindBrokenNewsletterLinksAction::class)->handle($record);
 
-                if (empty($brokenLinks)) {
+                if ($brokenLinks->isEmpty()) {
                     Notification::make()
                         ->title(__('filament-newsletter::filament-newsletter.actions.check_broken_links.none_found_title'))
                         ->success()
@@ -32,7 +32,7 @@ class CheckBrokenLinksTableAction
 
                 Notification::make()
                     ->title(__('filament-newsletter::filament-newsletter.actions.check_broken_links.found_title'))
-                    ->body(collect($brokenLinks)->map(fn ($link): string => is_array($link) ? ($link['url'] ?? json_encode($link)) : (string) $link)->implode("\n"))
+                    ->body($brokenLinks->map(fn (array $link): string => $link['url'])->implode("\n"))
                     ->warning()
                     ->send();
             });
