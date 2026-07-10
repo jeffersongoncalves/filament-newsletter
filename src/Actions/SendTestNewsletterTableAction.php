@@ -25,7 +25,7 @@ class SendTestNewsletterTableAction
                     ->required(),
             ])
             ->action(function (Newsletter $record, array $data): void {
-                app(SendTestNewsletterAction::class)($record, $data['email']);
+                app(SendTestNewsletterAction::class)->handle($record, $data['email']);
 
                 Notification::make()
                     ->title(__('filament-newsletter::filament-newsletter.actions.send_test.sent_notification', ['email' => $data['email']]))

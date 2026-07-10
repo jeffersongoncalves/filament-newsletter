@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace JeffersonGoncalves\FilamentNewsletter\Actions;
 
 use Filament\Tables\Actions\Action;
-use JeffersonGoncalves\Newsletter\Enums\NewsletterSentRecipientStatus;
+use JeffersonGoncalves\Newsletter\Enums\RecipientDeliveryStatus;
 use JeffersonGoncalves\Newsletter\Models\Newsletter;
 
 class SendingStatusTableAction
@@ -17,10 +17,15 @@ class SendingStatusTableAction
             ->icon('heroicon-o-chart-bar')
             ->color('gray')
             ->modalHeading(__('filament-newsletter::filament-newsletter.actions.sending_status.modal_heading'))
-            ->modalContent(fn (Newsletter $record) => view('filament-newsletter::actions.sending-status', [
-                'sent' => $record->sentRecipients()->where('status', NewsletterSentRecipientStatus::Sent)->count(),
-                'failed' => $record->sentRecipients()->where('status', NewsletterSentRecipientStatus::Failed)->count(),
-            ]))
+            ->modalContent(function (Newsletter $record) {
+                /** @var view-string $viewName */
+                $viewName = 'filament-newsletter::actions.sending-status';
+
+                return view($viewName, [
+                    'sent' => $record->sentRecipients()->where('status', RecipientDeliveryStatus::Sent)->count(),
+                    'failed' => $record->sentRecipients()->where('status', RecipientDeliveryStatus::Failed)->count(),
+                ]);
+            })
             ->modalSubmitAction(false);
     }
 }

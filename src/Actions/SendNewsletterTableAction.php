@@ -23,7 +23,7 @@ class SendNewsletterTableAction
             ->modalDescription(__('filament-newsletter::filament-newsletter.actions.send_now.modal_description'))
             ->visible(fn (Newsletter $record): bool => ! in_array($record->status, [NewsletterStatus::Sending, NewsletterStatus::Sent], true))
             ->action(function (Newsletter $record): void {
-                app(SendNewsletterAction::class)($record);
+                app(SendNewsletterAction::class)->handle($record);
 
                 Notification::make()
                     ->title(__('filament-newsletter::filament-newsletter.actions.send_now.sent_notification'))
