@@ -4,13 +4,25 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Tests;
 
+use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
+use BladeUI\Icons\BladeIconsServiceProvider;
+use Filament\Actions\ActionsServiceProvider;
 use Filament\FilamentServiceProvider;
+use Filament\Forms\FormsServiceProvider;
+use Filament\Infolists\InfolistsServiceProvider;
+use Filament\Notifications\NotificationsServiceProvider;
+use Filament\Schemas\SchemasServiceProvider;
 use Filament\Support\SupportServiceProvider;
+use Filament\Tables\TablesServiceProvider;
+use Filament\Widgets\WidgetsServiceProvider;
 use JeffersonGoncalves\FilamentNewsletter\FilamentNewsletterServiceProvider;
 use JeffersonGoncalves\FilamentNewsletter\Tests\Fixtures\TestPanelProvider;
+use JeffersonGoncalves\FilamentNewsletter\Tests\Models\User;
 use JeffersonGoncalves\Newsletter\NewsletterServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
+use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -18,8 +30,19 @@ abstract class TestCase extends Orchestra
     {
         return [
             LivewireServiceProvider::class,
-            SupportServiceProvider::class,
+            BladeIconsServiceProvider::class,
+            BladeHeroiconsServiceProvider::class,
+            BladeCaptureDirectiveServiceProvider::class,
             FilamentServiceProvider::class,
+            FormsServiceProvider::class,
+            SchemasServiceProvider::class,
+            SupportServiceProvider::class,
+            TablesServiceProvider::class,
+            ActionsServiceProvider::class,
+            InfolistsServiceProvider::class,
+            NotificationsServiceProvider::class,
+            WidgetsServiceProvider::class,
+            MediaLibraryServiceProvider::class,
             NewsletterServiceProvider::class,
             FilamentNewsletterServiceProvider::class,
             TestPanelProvider::class,
@@ -40,7 +63,14 @@ abstract class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-        config()->set('auth.providers.users.model', \JeffersonGoncalves\FilamentNewsletter\Tests\Models\User::class);
+        config()->set('filesystems.disks.public', [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => '/storage',
+            'visibility' => 'public',
+        ]);
+
+        config()->set('auth.providers.users.model', User::class);
 
         config()->set('app.key', 'base64:'.base64_encode(random_bytes(32)));
     }
