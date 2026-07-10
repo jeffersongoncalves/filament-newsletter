@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Resources;
 
+use BackedEnum;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use JeffersonGoncalves\FilamentNewsletter\Resources\EmailGroupResource\Pages;
@@ -20,7 +22,7 @@ class EmailGroupResource extends Resource
 {
     protected static ?string $model = EmailGroup::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     public static function getNavigationGroup(): ?string
     {
@@ -32,9 +34,9 @@ class EmailGroupResource extends Resource
         return __('filament-newsletter::filament-newsletter.navigation.email_groups');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form->schema([
+        return $schema->schema([
             TextInput::make('title')
                 ->label(__('filament-newsletter::filament-newsletter.fields.title'))
                 ->required()
@@ -60,11 +62,11 @@ class EmailGroupResource extends Resource
                     ->numeric(),
             ])
             ->defaultSort('title')
-            ->actions([
+            ->recordActions([
                 EditAction::make(),
                 DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
             ]);
     }

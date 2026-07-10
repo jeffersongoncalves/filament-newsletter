@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Actions;
 
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
+use Filament\Support\Icons\Heroicon;
 use JeffersonGoncalves\Newsletter\Actions\SendNewsletterAction;
 use JeffersonGoncalves\Newsletter\Enums\NewsletterStatus;
 use JeffersonGoncalves\Newsletter\Models\Newsletter;
@@ -16,7 +17,7 @@ class SendNewsletterTableAction
     {
         return Action::make('sendNow')
             ->label(__('filament-newsletter::filament-newsletter.actions.send_now.label'))
-            ->icon('heroicon-o-paper-airplane')
+            ->icon(Heroicon::OutlinedPaperAirplane)
             ->color('success')
             ->requiresConfirmation()
             ->modalHeading(__('filament-newsletter::filament-newsletter.actions.send_now.modal_heading'))

@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Actions;
 
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
+use Filament\Support\Icons\Heroicon;
 use JeffersonGoncalves\Newsletter\Actions\FindBrokenNewsletterLinksAction;
 use JeffersonGoncalves\Newsletter\Models\Newsletter;
 
@@ -15,7 +16,7 @@ class CheckBrokenLinksTableAction
     {
         return Action::make('checkBrokenLinks')
             ->label(__('filament-newsletter::filament-newsletter.actions.check_broken_links.label'))
-            ->icon('heroicon-o-link-slash')
+            ->icon(Heroicon::OutlinedLinkSlash)
             ->color('gray')
             ->action(function (Newsletter $record): void {
                 $brokenLinks = app(FindBrokenNewsletterLinksAction::class)($record);

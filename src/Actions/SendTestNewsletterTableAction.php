@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Actions;
 
+use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
+use Filament\Support\Icons\Heroicon;
 use JeffersonGoncalves\Newsletter\Actions\SendTestNewsletterAction;
 use JeffersonGoncalves\Newsletter\Models\Newsletter;
 
@@ -16,7 +17,7 @@ class SendTestNewsletterTableAction
     {
         return Action::make('sendTest')
             ->label(__('filament-newsletter::filament-newsletter.actions.send_test.label'))
-            ->icon('heroicon-o-paper-airplane')
+            ->icon(Heroicon::OutlinedPaperAirplane)
             ->modalHeading(__('filament-newsletter::filament-newsletter.actions.send_test.modal_heading'))
             ->form([
                 TextInput::make('email')

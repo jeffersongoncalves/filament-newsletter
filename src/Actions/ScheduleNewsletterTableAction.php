@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Actions;
 
+use Filament\Actions\Action;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
+use Filament\Support\Icons\Heroicon;
 use JeffersonGoncalves\Newsletter\Enums\NewsletterStatus;
 use JeffersonGoncalves\Newsletter\Models\Newsletter;
 
@@ -16,7 +17,7 @@ class ScheduleNewsletterTableAction
     {
         return Action::make('schedule')
             ->label(__('filament-newsletter::filament-newsletter.actions.schedule.label'))
-            ->icon('heroicon-o-clock')
+            ->icon(Heroicon::OutlinedClock)
             ->modalHeading(__('filament-newsletter::filament-newsletter.actions.schedule.modal_heading'))
             ->form([
                 DateTimePicker::make('scheduled_at')

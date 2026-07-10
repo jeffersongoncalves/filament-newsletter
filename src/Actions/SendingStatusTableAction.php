@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Actions;
 
-use Filament\Tables\Actions\Action;
+use Filament\Actions\Action;
+use Filament\Support\Icons\Heroicon;
 use JeffersonGoncalves\Newsletter\Enums\NewsletterSentRecipientStatus;
 use JeffersonGoncalves\Newsletter\Models\Newsletter;
 
@@ -14,7 +15,7 @@ class SendingStatusTableAction
     {
         return Action::make('sendingStatus')
             ->label(__('filament-newsletter::filament-newsletter.actions.sending_status.label'))
-            ->icon('heroicon-o-chart-bar')
+            ->icon(Heroicon::OutlinedChartBar)
             ->color('gray')
             ->modalHeading(__('filament-newsletter::filament-newsletter.actions.sending_status.modal_heading'))
             ->modalContent(fn (Newsletter $record) => view('filament-newsletter::actions.sending-status', [

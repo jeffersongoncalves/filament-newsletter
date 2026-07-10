@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace JeffersonGoncalves\FilamentNewsletter\Resources\EmailGroupResource\RelationManagers;
 
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -43,10 +44,10 @@ class MembersRelationManager extends RelationManager
                     ->sortable(),
             ])
             ->headerActions([])
-            ->actions([
+            ->recordActions([
                 Action::make('toggleUnsubscribed')
                     ->label(__('filament-newsletter::filament-newsletter.actions.toggle_unsubscribed.label'))
-                    ->icon('heroicon-o-arrow-path')
+                    ->icon(Heroicon::OutlinedArrowPath)
                     ->action(fn (EmailGroupMember $record) => $record->update([
                         'unsubscribed' => ! $record->unsubscribed,
                         'unsubscribed_at' => $record->unsubscribed ? null : now(),
@@ -54,7 +55,7 @@ class MembersRelationManager extends RelationManager
 
                 DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
             ]);
     }

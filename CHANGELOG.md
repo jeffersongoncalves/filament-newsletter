@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - YYYY-MM-DD
+## [2.0.0] - YYYY-MM-DD
 
 ### Added
 
@@ -17,5 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Toggle unsubscribed action and delete for email group members
 - Translations: English and Brazilian Portuguese
 
-[Unreleased]: https://github.com/jeffersongoncalves/filament-newsletter/compare/1.0.0...HEAD
-[1.0.0]: https://github.com/jeffersongoncalves/filament-newsletter/releases/tag/1.0.0
+### Requirements
+
+- PHP ^8.2
+- Laravel ^11.0
+- Filament ^4.0
+
+[Unreleased]: https://github.com/jeffersongoncalves/filament-newsletter/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/jeffersongoncalves/filament-newsletter/releases/tag/2.0.0
