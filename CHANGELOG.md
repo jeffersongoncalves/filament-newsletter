@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.0] - YYYY-MM-DD
+## [3.0.0] - YYYY-MM-DD
 
 ### Added
 
@@ -20,8 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Requirements
 
 - PHP ^8.2
-- Laravel ^11.0
-- Filament ^4.0
+- Laravel ^11.28
+- Filament ^5.0
 
-[Unreleased]: https://github.com/jeffersongoncalves/filament-newsletter/compare/2.0.0...HEAD
-[2.0.0]: https://github.com/jeffersongoncalves/filament-newsletter/releases/tag/2.0.0
+[Unreleased]: https://github.com/jeffersongoncalves/filament-newsletter/compare/3.0.0...HEAD
+[3.0.0]: https://github.com/jeffersongoncalves/filament-newsletter/releases/tag/3.0.0

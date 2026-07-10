@@ -1,14 +1,14 @@
 <div class="filament-hidden">
 
-![Filament Newsletter](https://raw.githubusercontent.com/jeffersongoncalves/filament-newsletter/2.x/art/jeffersongoncalves-filament-newsletter.png)
+![Filament Newsletter](https://raw.githubusercontent.com/jeffersongoncalves/filament-newsletter/3.x/art/jeffersongoncalves-filament-newsletter.png)
 
 </div>
 
 # Filament Newsletter
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/filament-newsletter.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-newsletter)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-newsletter/tests.yml?branch=2.x&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/filament-newsletter/actions?query=workflow%3Atests+branch%3A2.x)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-newsletter/fix-php-code-style-issues.yml?branch=2.x&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/filament-newsletter/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3A2.x)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-newsletter/tests.yml?branch=3.x&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/filament-newsletter/actions?query=workflow%3Atests+branch%3A3.x)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-newsletter/fix-php-code-style-issues.yml?branch=3.x&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/filament-newsletter/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3A3.x)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeffersongoncalves/filament-newsletter.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-newsletter)
 [![License](https://img.shields.io/packagist/l/jeffersongoncalves/filament-newsletter.svg?style=flat-square)](LICENSE)
 
@@ -27,7 +27,7 @@ A Filament plugin for composing, scheduling, and sending newsletters to subscrib
 You can install the package via composer:
 
 ```bash
-composer require jeffersongoncalves/filament-newsletter:"^2.0"
+composer require jeffersongoncalves/filament-newsletter:"^3.0"
 ```
 
 Publish the configuration (optional):
