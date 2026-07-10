@@ -1,0 +1,74 @@
+{
+    "name": "jeffersongoncalves/filament-newsletter",
+    "description": "Filament admin UI for composing, scheduling, and sending newsletters to subscriber email groups.",
+    "keywords": [
+        "laravel",
+        "filament",
+        "filament-plugin",
+        "newsletter",
+        "email",
+        "mailing-list"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/filament-newsletter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jefferson Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "filament/spatie-laravel-media-library-plugin": "^3.0",
+        "jeffersongoncalves/laravel-newsletter": "*",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "require-dev": {
+        "larastan/larastan": "^2.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^8.0|^9.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../laravel/laravel-newsletter"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\FilamentNewsletter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\FilamentNewsletter\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\FilamentNewsletter\\FilamentNewsletterServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
