@@ -22,7 +22,7 @@
         "php": "^8.1",
         "filament/filament": "^3.0",
         "filament/spatie-laravel-media-library-plugin": "^3.0",
-        "jeffersongoncalves/laravel-newsletter": "*",
+        "jeffersongoncalves/laravel-newsletter": "dev-master",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
@@ -34,8 +34,8 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "../../laravel/laravel-newsletter"
+            "type": "vcs",
+            "url": "https://github.com/jeffersongoncalves/laravel-newsletter"
         }
     ],
     "autoload": {
