@@ -1,0 +1,83 @@
+{
+    "plugin": {
+        "name": "Filament Newsletter",
+        "package": "jeffersongoncalves/filament-newsletter"
+    },
+    "filakit": {
+        "kit": "filakitphp/basev5"
+    },
+    "install": {
+        "extra_packages": [],
+        "plugins": [
+            {
+                "class": "JeffersonGoncalves\\FilamentNewsletter\\FilamentNewsletterPlugin",
+                "panel": "admin"
+            }
+        ],
+        "publish": [
+            "newsletter-migrations",
+            "medialibrary-migrations"
+        ],
+        "post_install_commands": [
+            "migrate"
+        ],
+        "env": []
+    },
+    "seed": {
+        "auto_detect": true,
+        "user": {
+            "email": "admin@example.com",
+            "password": "password",
+            "name": "Admin User"
+        },
+        "models": [
+            {
+                "model": "JeffersonGoncalves\\Newsletter\\Models\\EmailGroup",
+                "count": 10
+            },
+            {
+                "model": "JeffersonGoncalves\\Newsletter\\Models\\Newsletter",
+                "count": 10
+            }
+        ]
+    },
+    "screenshots": [
+        {
+            "name": "emailgroup-list",
+            "url": "/admin/email-groups"
+        },
+        {
+            "name": "emailgroup-create",
+            "url": "/admin/email-groups/create"
+        },
+        {
+            "name": "emailgroup-edit",
+            "url": "/admin/email-groups/1/edit"
+        },
+        {
+            "name": "newsletter-list",
+            "url": "/admin/newsletters"
+        },
+        {
+            "name": "newsletter-create",
+            "url": "/admin/newsletters/create"
+        },
+        {
+            "name": "newsletter-edit",
+            "url": "/admin/newsletters/1/edit"
+        }
+    ],
+    "output": {
+        "directory": "screenshots",
+        "themes": [
+            "light",
+            "dark"
+        ],
+        "format": "png"
+    },
+    "readme": {
+        "update": true,
+        "section_marker": "<!-- SCREENSHOTS -->",
+        "template": "table"
+    }
+}
