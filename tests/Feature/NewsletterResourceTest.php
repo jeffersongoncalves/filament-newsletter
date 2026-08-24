@@ -34,13 +34,16 @@ it('can create a newsletter', function () {
             'sender_name' => 'Acme Inc.',
             'sender_email' => 'news@acme.test',
             'content_type' => 'rich_text',
-            'content' => '<p>Hello world</p>',
+            'content_rich_text' => '<p>Hello world</p>',
             'route' => 'monthly-digest',
         ])
         ->call('create')
         ->assertHasNoFormErrors();
 
-    expect(Newsletter::query()->where('route', 'monthly-digest')->exists())->toBeTrue();
+    $newsletter = Newsletter::query()->where('route', 'monthly-digest')->first();
+
+    expect($newsletter)->not->toBeNull()
+        ->and($newsletter->content)->toBe('<p>Hello world</p>');
 });
 
 it('can render the edit newsletter page', function () {
@@ -53,5 +56,20 @@ it('can render the edit newsletter page', function () {
     ]);
 
     Livewire::test(EditNewsletter::class, ['record' => $newsletter->getRouteKey()])
-        ->assertSuccessful();
+        ->assertSuccessful()
+        ->assertFormSet(['content_markdown' => '# Hello']);
+});
+
+it('preserves html content when editing', function () {
+    $newsletter = Newsletter::create([
+        'subject' => 'Raw HTML edition',
+        'sender_email' => 'news@acme.test',
+        'content_type' => 'html',
+        'content' => '<p>Raw HTML body</p>',
+        'route' => 'raw-html-edition',
+    ]);
+
+    Livewire::test(EditNewsletter::class, ['record' => $newsletter->getRouteKey()])
+        ->assertSuccessful()
+        ->assertFormSet(['content_html' => '<p>Raw HTML body</p>']);
 });
