@@ -16,11 +16,11 @@ A Filament plugin for composing, scheduling, and sending newsletters to subscrib
 
 ## Compatibility
 
-| Version | Filament | PHP | Laravel | Tailwind |
-|---------|----------|-----|---------|----------|
-| [1.x](https://github.com/jeffersongoncalves/filament-newsletter/tree/1.x) | ^3.0 | ^8.1 | ^10.0 | 3.x |
-| [2.x](https://github.com/jeffersongoncalves/filament-newsletter/tree/2.x) | ^4.0 | ^8.2 | ^11.0 | 4.x |
-| [3.x](https://github.com/jeffersongoncalves/filament-newsletter/tree/3.x) | ^5.0 | ^8.2 | ^11.28 | 4.x |
+| Version | Filament |
+|---------|----------|
+| [1.x](https://github.com/jeffersongoncalves/filament-newsletter/tree/1.x) | ^3.0 |
+| [2.x](https://github.com/jeffersongoncalves/filament-newsletter/tree/2.x) | ^4.0 |
+| [3.x](https://github.com/jeffersongoncalves/filament-newsletter/tree/3.x) | ^5.0 |
 
 ## Installation
 
