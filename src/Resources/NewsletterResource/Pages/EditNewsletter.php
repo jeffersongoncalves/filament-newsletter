@@ -18,4 +18,16 @@ class EditNewsletter extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $data[NewsletterResource::contentFieldName($data['content_type'] ?? null)] = $data['content'] ?? null;
+
+        return $data;
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        return NewsletterResource::collapseContentField($data);
+    }
 }

@@ -58,6 +58,24 @@ class NewsletterResource extends Resource
         return $schema->schema(static::getFormSchema());
     }
 
+    public static function contentFieldName(?string $contentType): string
+    {
+        return match ($contentType) {
+            NewsletterContentType::Markdown->value => 'content_markdown',
+            NewsletterContentType::Html->value => 'content_html',
+            default => 'content_rich_text',
+        };
+    }
+
+    public static function collapseContentField(array $data): array
+    {
+        $data['content'] = $data[static::contentFieldName($data['content_type'] ?? null)] ?? '';
+
+        unset($data['content_rich_text'], $data['content_markdown'], $data['content_html']);
+
+        return $data;
+    }
+
     public static function getFormSchema(): array
     {
         return [
@@ -88,19 +106,22 @@ class NewsletterResource extends Resource
                 ->live()
                 ->columnSpanFull(),
 
-            RichEditor::make('content')
+            RichEditor::make(static::contentFieldName(NewsletterContentType::RichText->value))
                 ->label(__('filament-newsletter::filament-newsletter.fields.content'))
                 ->visible(fn (Get $get): bool => $get('content_type') === NewsletterContentType::RichText->value)
+                ->dehydrated(fn (Get $get): bool => $get('content_type') === NewsletterContentType::RichText->value)
                 ->columnSpanFull(),
 
-            MarkdownEditor::make('content')
+            MarkdownEditor::make(static::contentFieldName(NewsletterContentType::Markdown->value))
                 ->label(__('filament-newsletter::filament-newsletter.fields.content'))
                 ->visible(fn (Get $get): bool => $get('content_type') === NewsletterContentType::Markdown->value)
+                ->dehydrated(fn (Get $get): bool => $get('content_type') === NewsletterContentType::Markdown->value)
                 ->columnSpanFull(),
 
-            Textarea::make('content')
+            Textarea::make(static::contentFieldName(NewsletterContentType::Html->value))
                 ->label(__('filament-newsletter::filament-newsletter.fields.content'))
                 ->visible(fn (Get $get): bool => $get('content_type') === NewsletterContentType::Html->value)
+                ->dehydrated(fn (Get $get): bool => $get('content_type') === NewsletterContentType::Html->value)
                 ->rows(15)
                 ->columnSpanFull(),
 
