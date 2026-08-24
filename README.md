@@ -72,6 +72,19 @@ The **Newsletter** resource lets you compose a newsletter with rich text, Markdo
 
 The **Email Group** resource manages named subscriber lists. Each group shows the number of confirmed, still-subscribed members, and has a relation manager for its members where you can toggle a member's unsubscribed state or remove them.
 
+## Screenshots
+
+<!-- SCREENSHOTS -->
+| Screenshot | Light | Dark |
+|---|---|---|
+| Emailgroup list | ![emailgroup-list](screenshots/light/emailgroup-list.png) | ![emailgroup-list](screenshots/dark/emailgroup-list.png) |
+| Emailgroup create | ![emailgroup-create](screenshots/light/emailgroup-create.png) | ![emailgroup-create](screenshots/dark/emailgroup-create.png) |
+| Emailgroup edit | ![emailgroup-edit](screenshots/light/emailgroup-edit.png) | ![emailgroup-edit](screenshots/dark/emailgroup-edit.png) |
+| Newsletter list | ![newsletter-list](screenshots/light/newsletter-list.png) | ![newsletter-list](screenshots/dark/newsletter-list.png) |
+| Newsletter create | ![newsletter-create](screenshots/light/newsletter-create.png) | ![newsletter-create](screenshots/dark/newsletter-create.png) |
+| Newsletter edit | ![newsletter-edit](screenshots/light/newsletter-edit.png) | ![newsletter-edit](screenshots/dark/newsletter-edit.png) |
+<!-- SCREENSHOTS -->
+
 ## Localization
 
 Translations are provided for:
