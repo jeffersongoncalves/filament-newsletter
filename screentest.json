@@ -43,15 +43,15 @@
     },
     "screenshots": [
         {
-            "name": "emailgroup-list",
+            "name": "email-group-list",
             "url": "/admin/email-groups"
         },
         {
-            "name": "emailgroup-create",
+            "name": "email-group-create",
             "url": "/admin/email-groups/create"
         },
         {
-            "name": "emailgroup-edit",
+            "name": "email-group-edit",
             "url": "/admin/email-groups/1/edit"
         },
         {

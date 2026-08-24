@@ -77,9 +77,9 @@ The **Email Group** resource manages named subscriber lists. Each group shows th
 <!-- SCREENSHOTS -->
 | Screenshot | Light | Dark |
 |---|---|---|
-| Emailgroup list | ![emailgroup-list](screenshots/light/emailgroup-list.png) | ![emailgroup-list](screenshots/dark/emailgroup-list.png) |
-| Emailgroup create | ![emailgroup-create](screenshots/light/emailgroup-create.png) | ![emailgroup-create](screenshots/dark/emailgroup-create.png) |
-| Emailgroup edit | ![emailgroup-edit](screenshots/light/emailgroup-edit.png) | ![emailgroup-edit](screenshots/dark/emailgroup-edit.png) |
+| Email group list | ![email-group-list](screenshots/light/email-group-list.png) | ![email-group-list](screenshots/dark/email-group-list.png) |
+| Email group create | ![email-group-create](screenshots/light/email-group-create.png) | ![email-group-create](screenshots/dark/email-group-create.png) |
+| Email group edit | ![email-group-edit](screenshots/light/email-group-edit.png) | ![email-group-edit](screenshots/dark/email-group-edit.png) |
 | Newsletter list | ![newsletter-list](screenshots/light/newsletter-list.png) | ![newsletter-list](screenshots/dark/newsletter-list.png) |
 | Newsletter create | ![newsletter-create](screenshots/light/newsletter-create.png) | ![newsletter-create](screenshots/dark/newsletter-create.png) |
 | Newsletter edit | ![newsletter-edit](screenshots/light/newsletter-edit.png) | ![newsletter-edit](screenshots/dark/newsletter-edit.png) |
