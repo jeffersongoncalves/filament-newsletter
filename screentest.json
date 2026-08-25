@@ -38,6 +38,14 @@
             {
                 "model": "JeffersonGoncalves\\Newsletter\\Models\\Newsletter",
                 "count": 10
+            },
+            {
+                "model": "JeffersonGoncalves\\Newsletter\\Models\\EmailGroupMember",
+                "count": 3,
+                "attributes": {
+                    "email_group_id": 1
+                },
+                "after_resources": true
             }
         ]
     },
