@@ -18,6 +18,7 @@ use JeffersonGoncalves\FilamentNewsletter\FilamentNewsletterServiceProvider;
 use JeffersonGoncalves\FilamentNewsletter\Tests\Fixtures\TestPanelProvider;
 use JeffersonGoncalves\FilamentNewsletter\Tests\Models\User;
 use JeffersonGoncalves\Newsletter\NewsletterServiceProvider;
+use JeffersonGoncalves\PestPluginDatabaseMigrations\LoadsPackageMigrations;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
@@ -25,6 +26,8 @@ use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
+    use LoadsPackageMigrations;
+
     protected function getPackageProviders($app): array
     {
         return [
@@ -50,6 +53,7 @@ abstract class TestCase extends Orchestra
     protected function defineDatabaseMigrations(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadPackageMigrations(NewsletterServiceProvider::class);
     }
 
     protected function getEnvironmentSetUp($app): void
